@@ -1,0 +1,227 @@
+/* Importando las fuentes locales, se hace uso de la fuente
+Markpro */
+
+@font-face {
+  font-family: "MarkPro";
+  src: url("../resources/fonts/MarkPro-Bold.eot");
+  src: url("../resources/fonts/MarkPro-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../resources/fonts/MarkPro-Bold.woff2") format("woff2"),
+    url("../resources/fonts/MarkPro-Bold.woff") format("woff"),
+    url("../resources/fonts/MarkPro-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MarkPro";
+  src: url("../resources/fonts/MarkPro.eot");
+  src: url("../resources/fonts/MarkPro.eot?#iefix") format("embedded-opentype"),
+    url("../resources/fonts/MarkPro.woff2") format("woff2"),
+    url("../resources/fonts/MarkPro.woff") format("woff"),
+    url("../resources/fonts/MarkPro.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fin de la sección de importación de fuentes locales */
+
+/* Iniciando los estilos del body del proyecto
+Se quita el margin y el padding de manera que
+No hayan espacios, se instancia el color de fondo */
+body {
+  margin: 0%;
+  padding: 0;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #a6fd8c 0%, #63c650 100%);
+  font-family: "MarkPro";
+}
+
+/* Estilos del contenedor principal, buscando
+centrar todo en el centro de la pantalla */
+.o-main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Contenedor principal del reproductor de video
+Organizado en columna */
+.o-player-container {
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  height: 552px;
+  padding-top: 50px;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+}
+
+/* Contenedor de la imagen del album de la canción */
+.o-album-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0 0 0;
+  background: #212121;
+  height: 50%;
+}
+
+/* Imagen del album */
+.o-album-image {
+  width: 50%;
+}
+
+/* Contenedor del nombre de la canción y nombre del artista */
+.o-description-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Elemento del nombre de la canción */
+.o-song-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Elemento del nombre del artista */
+.o-song-artist {
+  margin: 0%;
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+.o-song-duration {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.o-time-slider {
+  width: 200px;
+  margin: 0 5px;
+}
+
+.o-song-time {
+  width: 35px;
+}
+
+/* Contenedor de los botones del reproductor */
+.o-option-container {
+  display: flex;
+  margin: 30px 0 30px 0;
+  justify-content: center;
+}
+
+/* Estilos de los botones de las opciones del reproductor */
+.o-option {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: #414141;
+  margin: 0px 1.5rem;
+  transition: 0.3s ease-in-out;
+}
+
+/* Hoverables */
+
+/* Estilos al pasar el cursor sobre el boton */
+.o-option:hover {
+  background-color: #080808;
+  transition: 0.35s ease-in-out;
+}
+
+/* Animable */
+
+.fade-in {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.35s;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Media queries */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .o-player-container {
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  body {
+    background: #eeeeee;
+  }
+}
+
+@media only screen and (max-height: 500px) and (orientation: landscape) {
+  body {
+    background: #eeeeee;
+  }
+
+  .o-player-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+  }
+
+  .o-album-container {
+    display: flex;
+    margin: 0;
+    width: 50%;
+    height: 100%;
+  }
+
+  .o-album-image {
+    width: 80%;
+  }
+
+  .o-landscape {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .o-option-container {
+    display: flex;
+    margin: 50px 0 0 0;
+    align-items: center;
+  }
+
+  .o-option {
+    width: 48px;
+    height: 48px;
+  }
+
+  .o-option img {
+    width: 100%;
+  }
+}
